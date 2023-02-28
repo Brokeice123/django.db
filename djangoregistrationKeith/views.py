@@ -4,7 +4,7 @@ from django.contrib import messages
 
 
 def index_page(request):
-    return render(request, "index.html")
+    return render(request, "index2.html")
 
 
 def login_page(request):
