@@ -7,4 +7,6 @@ class Student(models.Model):
     age = models.IntegerField(max_length=50, blank=True, null=False)
     gender = models.CharField(max_length=50, blank=True, null=False)
 
+
 def __str__(self):
+    return self.name
