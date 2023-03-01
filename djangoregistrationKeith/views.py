@@ -5,7 +5,9 @@ from .models import Student
 
 
 def index_page(request):
-    return render(request, "index2.html")
+    data = Student.objects.all()
+    context = {'data': data}
+    return render(request, "index2.html", context)
 
 
 def login_page(request):
@@ -26,8 +28,10 @@ def insertdata(request):
         email = request.POST.get('email')
         age = request.POST.get('age')
         gender = request.POST.get('gender')
+        phone = request.POST.get('phone')
 
-        query = Student(name=name, email=email, age=age, gender=gender)
+        query = Student(name=name, email=email, age=age, gender=gender, phone=phone)
         query.save()
+        return redirect("/")
 
-    return render(request, "index2.html")
+    return render(request, "/")
