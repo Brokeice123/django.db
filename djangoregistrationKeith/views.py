@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import Student
+from .models import Products
 
 
 def index_page(request):
@@ -45,6 +46,7 @@ def deleteData(request, id):
     return redirect("/")
     return render(request, "index2.html")
 
+
 # slash means that it is retuning to the root page
 
 
@@ -75,3 +77,14 @@ def updateData(request, id):
     return render(request, "edit.html", context)
 
 
+def insertproducts(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        description = request.POST.get('description')
+        quantity = request.POST.get('quantity')
+
+        query = Products(name=name, price=price, description=description, quantity=quantity)
+        query.save()
+
+    return render(request, "products.html")

@@ -11,5 +11,12 @@ class Student(models.Model):
     country = models.CharField(max_length=50, blank=True, null=False)
 
 
+class Products(models.Model):
+    name = models.CharField(max_length=50, blank=True, null=False)
+    price = models.IntegerField(max_length=50, blank=True, null=False)
+    description = models.CharField(max_length=50, blank=True, null=False)
+    quantity = models.IntegerField(max_length=50, blank=True, null=False)
+
+
 def __str__(self):
     return self.name
